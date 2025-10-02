@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: go-ulbajmfa-gitops
+  description: This is GitOps manifest for go-ulbajmfa   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=go-ulbajmfa
+    backstage.io/kubernetes-id: go-ulbajmfa 
+    backstage.io/techdocs-ref: dir:.
+    dev.azure.com/project-repo: rhtap-rhdh-qe/go-ulbajmfa-gitops
+    dev.azure.com/project: shared-public
+    dev.azure.com/build-definition: rhtap-rhdh-qe.go-ulbajmfa-gitops
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:go-ulbajmfa
